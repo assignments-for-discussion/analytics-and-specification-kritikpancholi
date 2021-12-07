@@ -1,13 +1,13 @@
 function average(numbers) {
-  let countOfValidReading = 0;
+  let countOfInvalidReading = 0;
   return parseFloat(numbers.reduce((p, c)=> {
     if (isNaN(c)){
-      countOfValidReading++;
+      countOfInvalidReading++;
       return p + 0;  
     } else {
       return p + c;
     }
-  }, 0)) / (numbers.length - countOfValidReading);
+  }, 0)) / (numbers.length - countOfInvalidReading);
 }
 
 module.exports = {average};

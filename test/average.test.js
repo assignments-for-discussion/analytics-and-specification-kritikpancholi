@@ -4,7 +4,7 @@ const {average} = require('../average');
 it('computes average of a list of numbers', ()=> {
   // floating point numbers cannot be compared for equality,
   // hence allowing a delta tolerance
-  expect(average([1, 2, 3, 4])).to.be.approximately(2.5, 0.01);
+  expect(average([1, 2, 3, 4])).to.be.approximately(2.5,0.01);
 });
 
 it('reports the average as NaN on an empty list', ()=> {
@@ -12,5 +12,9 @@ it('reports the average as NaN on an empty list', ()=> {
 });
 
 it('ignores NaN in the input', ()=> {
-  expect(average([1, NaN, 2])).to.be.approximately(1.5, 0.01);
+  expect(average([1, NaN, 2])).to.be.approximately(1.5,0.01);
+});
+
+it('round up reading upto 2 decimal places ', ()=> {
+  expect(average( [10.89901,0.92,20.00001])).to.be.approximately(10.60,0.01);
 });
